@@ -1,14 +1,28 @@
-version: '2'
-services:
+version: '3.8'
+services: 
+  api:
+    container_name: api-container
+    restart: always
+    build: ./server
+    ports: 
+      - "8081:8081"
+   
+  client:
+    container_name: fronend-container
+    restart: always
+    build: ./client
+    ports: 
+      - "8080:8080"
     
-    wordpress:
-      image: wordpress
-      ports:
-         - 8080:80
-      environment:
-        WORDPRESS_DB_PASSWORD: root
-    
-    db:
-       image: mariadb
-       environment:
-         MYSQL_ROOT_PASSWORD: blank
+  mongo:
+    container_name: backend-db-conatiner
+    image: mongo
+    expose: 
+      - "27017"
+    ports: 
+      - "27017:27017"
+    volumes: 
+      - apiDB:/data/db
+
+volumes: 
+  apiDB:
