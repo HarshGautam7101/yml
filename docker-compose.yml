@@ -6,7 +6,7 @@ services:
       ports:
          - 8080:80
       environment:
-        WORDPRESS_DB_PASSWORD: blank
+        WORDPRESS_DB_PASSWORD: root
     
     db:
        image: mariadb
