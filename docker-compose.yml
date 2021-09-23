@@ -6,9 +6,9 @@ services:
       ports:
          - 8080:80
       environment:
-        WORDPRESS_DB_PASSWORD: password
+        WORDPRESS_DB_PASSWORD: root
     
-    mysql:
-       image: mysql:latest
+    db:
+       image: mariadb
        environment:
-         MYSQL_ROOT_PASSWORD: password
+         MYSQL_ROOT_PASSWORD: root
